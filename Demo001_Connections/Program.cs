@@ -21,6 +21,11 @@ namespace Demo001_Connections
 
     delegate void ClientConnected(IPEndPoint addr);
 
+    class GlobalConfig
+    {
+        public const int TICK_RATE = 5;
+    }
+
     class NetworkProtocol
     {
         private readonly UdpClient _udp;
@@ -111,12 +116,12 @@ namespace Demo001_Connections
             _sendQueueSize = 0;
         }
 
-        // Call Update at a regular interval (e.g. 20 times a second).
+        // Call Update at a regular interval.
         public void Update()
         {
             _timeoutAccumulator++;
 
-            if (_connected && _timeoutAccumulator > 20 /* hz */ * 10 /* seconds */)
+            if (_connected && _timeoutAccumulator > GlobalConfig.TICK_RATE /* hz */ * 10 /* seconds */)
             {
                 // This connection has timed out.
                 _onDisconnect(_target);
@@ -265,14 +270,16 @@ namespace Demo001_Connections
                     server.Update();
 
                     // Wait to match 20hz.
-                    Thread.Sleep(1000 / 20);
+                    Thread.Sleep(1000 / GlobalConfig.TICK_RATE);
                 }
             }
             else
             {
                 var client = new GameClient("127.0.0.1", 19000, (from, data) =>
                 {
-                    Console.WriteLine("[client] Received message from server - " + Encoding.ASCII.GetString(data));
+                    // This makes it harder to read the output for the purposes of the demo, but you can uncomment
+                    // it if you want to see the data being echoed back to the client.
+                    // Console.WriteLine("[client] Received message from server - " + Encoding.ASCII.GetString(data));
                 }, (addr) => {
                     Console.WriteLine("[client] Lost connection to server");
                 });
@@ -283,13 +290,15 @@ namespace Demo001_Connections
                 while (true)
                 {
                     // Enqueue send.
-                    client.Send(Encoding.ASCII.GetBytes("Hello World " + i++));
+                    var msg = "Hello World " + i++;
+                    Console.WriteLine("[client] Sent message to server - " + msg);
+                    client.Send(Encoding.ASCII.GetBytes(msg));
 
                     // Update client.
                     client.Update();
 
                     // Wait to match 20hz.
-                    Thread.Sleep(1000 / 20);
+                    Thread.Sleep(1000 / GlobalConfig.TICK_RATE);
                 }
             }
         }
