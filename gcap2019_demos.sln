@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo001_Connections", "Demo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo002_SequenceAndAcks", "Demo002_SequenceAndAcks\Demo002_SequenceAndAcks.csproj", "{11D38D5B-E0C1-4DF0-A007-70D15EB1BB55}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo003_Fragmentation", "Demo003_Fragmentation\Demo003_Fragmentation.csproj", "{E38291A0-96B3-466F-90F1-94E0F56CDE3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{11D38D5B-E0C1-4DF0-A007-70D15EB1BB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11D38D5B-E0C1-4DF0-A007-70D15EB1BB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11D38D5B-E0C1-4DF0-A007-70D15EB1BB55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E38291A0-96B3-466F-90F1-94E0F56CDE3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E38291A0-96B3-466F-90F1-94E0F56CDE3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E38291A0-96B3-466F-90F1-94E0F56CDE3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E38291A0-96B3-466F-90F1-94E0F56CDE3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
