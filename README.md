@@ -15,3 +15,4 @@ I had more links than I could put on one closing slide, so here's all of them.
 * [Protogame - Input Prediction Implementation](https://github.com/RedpointGames/Protogame/blob/master/Protogame/Network/LowLevel/InputPrediction.cs)
 * [Protogame - Interpolation Implementation](https://github.com/RedpointGames/Protogame/tree/master/Protogame/Network/TimeMachines)
 * [Armello Blog Post on Dedicated Servers](https://steamcommunity.com/games/290340/announcements/detail/1696062196980619562)
+* [Combining deterministic lockstep and input prediction - Factorio](https://www.factorio.com/blog/post/fff-302)
